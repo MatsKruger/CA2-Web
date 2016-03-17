@@ -1,0 +1,19 @@
+body {
+  padding: calc(50px + 1em) 1em calc(36px + 1em);
+}
+/*body:before, body:after {
+  content: '';
+  display: block;
+  position: fixed;
+  height: 1em;
+  right: 0;
+  left: 0;
+  background: white;
+  z-index: 999;
+}
+body:before {
+  top: 50px;
+}
+body:after {
+  bottom: 36px;
+}*/

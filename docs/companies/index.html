@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>CA2 - Dokumentation</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="import" id="header-template" href="/partial/header.html">
+  <link rel="import" id="footer-template" href="/partial/footer.html">
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <h1>Firmaer</h1>
+      <div class="page-header">
+        <p class="lead">Firmaer web API'et udstiller Firma data.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-12">
+          <ul id="indhold" class="nav nav-list affix">
+            <li data-toggle="collapse" data-target="#personer" class="nav-header">Firmaer API</li>
+            <ul id="personer" class="nav nav-list collapse in">
+              <li><a href="#firmasoegning">Firmasøgning</a></li>
+              <li><a href="#firmaopslag">Firmaopslag</a></li>
+              <li><a href="#firmadata">Firmadata</a></li>
+            </ul>
+          </ul>
+        </div>
+        <div class="col-md-9 col-sm-12">
+          <section>
+            <h3 id="firmasoegning" class="anchor-header">Firmasøgning</h3>
+            <p>Søg efter firmaer. Returnerer de firmaer som opfylder kriteriet.</p><pre>GET http://localhost:8080/CA2/api/companies</pre>
+            <h4>Parametre</h4>
+            <p></p>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Navn</th>
+                  <th>Beskrivelse</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>Firmaets unikke id, f.eks. 1.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p></p>
+            <h4>Eksempler</h4>
+            <p>Find company med id 1</p><pre><a href="http://localhost:8080/CA2/api/companies?id=1">http://localhost:8080/CA2/api/companies?id=1</a></pre>
+            <div class="page-header"></div>
+            <h3 id="firmaopslag" class="anchor-header">Firmaopslag</h3>
+            <p>Modtag firma med id.</p><pre>GET http://dawa.aws.dk/companies/{id}</pre>
+            <h4>Parametre</h4>
+            <p></p>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Navn</th>
+                  <th>Beskrivelse</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>Firmaets unikke id, f.eks. 1.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p></p>
+            <h4>Eksempler</h4>
+            <p>Returner firma med id 1</p><pre><a href="http://localhost:8080/CA2/api/companies/1">http://localhost:8080/CA2/api/companies/1</a></pre>
+            <div class="page-header">
+              <h3 id="firmadata" class="anchor-header">Beskrivelse af firmadata</h3></div>
+            <p>Web API'et udstiller for hvert firma følgende informationer:</p>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th colspan="5">Navn</th>
+                  <th>Type</th>
+                  <th>Beskrivelse</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="5">href</td>
+                  <td>string</td>
+                  <td>Firmaets unikke URL.</td>
+                </tr>
+                <tr>
+                  <td colspan="5">id</td>
+                  <td>integer</td>
+                  <td>Firmaets id</td>
+                </tr>
+                <tr>
+                  <td colspan="5">name</td>
+                  <td>string</td>
+                  <td>Firmaets navn</td>
+                </tr>
+                <tr>
+                  <td colspan="5">description</td>
+                  <td>string</td>
+                  <td>Firmaets beskrivelse</td>
+                </tr>
+                <tr>
+                  <td colspan="5">cvr</td>
+                  <td>string</td>
+                  <td>Firmaets CVR</td>
+                </tr>
+                <tr>
+                  <td colspan="5">numOfEmployees</td>
+                  <td>integer</td>
+                  <td>Firmaets antal af medarbejdere</td>
+                </tr>
+                <tr>
+                  <td colspan="5">marketValue</td>
+                  <td>string</td>
+                  <td>Firmaets markedsværdi</td>
+                </tr>
+                <tr>
+                  <td colspan="5">email</td>
+                  <td>string</td>
+                  <td>Firmaets email</td>
+                </tr>
+                <tr>
+                  <td colspan="5">phones</td>
+                  <td>array</td>
+                  <td>Firmaets telefoner</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">id</td>
+                  <td>integer</td>
+                  <td>Telefonens id</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">number</td>
+                  <td>string</td>
+                  <td>Telefonens nummer</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">description</td>
+                  <td>string</td>
+                  <td>Telefonens beskrivelse</td>
+                </tr>
+                <tr>
+                  <td colspan="5">address</td>
+                  <td>object</td>
+                  <td>Firmaets adresse</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">id</td>
+                  <td>integer</td>
+                  <td>Adressens id</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">street</td>
+                  <td>string</td>
+                  <td>Adressens vejnavn</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">additionalInfo</td>
+                  <td>string</td>
+                  <td>Adressens husnr, etage og side/dør</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">cityInfo</td>
+                  <td>object</td>
+                  <td>Adressens tilhørende by</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td colspan="3">id</td>
+                  <td>integer</td>
+                  <td>Byens id</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td colspan="3">zipCode</td>
+                  <td>string</td>
+                  <td>Byens postnummer</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td colspan="3">city</td>
+                  <td>string</td>
+                  <td>Byens navn</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js" charset="utf-8"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="/main.js" charset="utf-8"></script>
+</body>
+
+</html>

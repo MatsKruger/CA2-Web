@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>CA2 - Dokumentation</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="import" id="header-template" href="/partial/header.html">
+  <link rel="import" id="footer-template" href="/partial/footer.html">
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <h1>Hobbyer</h1>
+      <div class="page-header">
+        <p class="lead">Hobby web API'et udstiller Hobbyer.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-12">
+          <ul id="indhold" class="nav nav-list affix">
+            <li data-toggle="collapse" data-target="#hobbyer" class="nav-header">Hobby API</li>
+            <ul id="hobbyer" class="nav nav-list collapse in">
+              <li><a href="#hobbysoegning">Hobbysøgning</a></li>
+              <li><a href="#hobbyopslag">Hobbyopslag</a></li>
+              <li><a href="#hobbydata">Hobbydata</a></li>
+            </ul>
+          </ul>
+        </div>
+        <div class="col-md-9 col-sm-12">
+          <section>
+            <h3 id="hobbysoegning" class="anchor-header">Hobbysøgning</h3>
+            <p>Søg efter hobbyer. Returnerer de hobbyer som opfylder kriteriet.</p><pre>GET http://dawa.aws.dk/hobbies</pre>
+            <h4>Parametre</h4>
+            <p></p>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Navn</th>
+                  <th>Beskrivelse</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>Hobbyens unikke id, f.eks. 1.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p></p>
+            <h4>Eksempler</h4>
+            <p>Find hobby med id 1</p><pre><a href="http://localhost:8080/CA2/api/hobbies?id=1">http://localhost:8080/CA2/api/hobbies?id=1</a></pre>
+            <div class="page-header"></div>
+            <h3 id="hobbyopslag" class="anchor-header">Hobbyopslag</h3>
+            <p>Modtag hobby med id.</p><pre>GET http://dawa.aws.dk/hobbies/{id}</pre>
+            <h4>Parametre</h4>
+            <p></p>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Navn</th>
+                  <th>Beskrivelse</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>Hobbyens unikke id, f.eks. 1.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p></p>
+            <h4>Eksempler</h4>
+            <p>Returner hobby med id 1</p><pre><a href="http://localhost:8080/CA2/api/hobbies/1">http://localhost:8080/CA2/api/hobbies/1</a></pre>
+            <div class="page-header">
+              <h3 id="hobbydata" class="anchor-header">Beskrivelse af hobbydata</h3></div>
+            <p>Web API'et udstiller for hver hobby følgende informationer:</p>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th colspan="5">Navn</th>
+                  <th>Type</th>
+                  <th>Beskrivelse</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="5">href</td>
+                  <td>string</td>
+                  <td>Hobbyens unikke URL.</td>
+                </tr>
+                <tr>
+                  <td colspan="5">id</td>
+                  <td>int</td>
+                  <td>Hobbyens id</td>
+                </tr>
+                <tr>
+                  <td colspan="5">name</td>
+                  <td>string</td>
+                  <td>Hobbyens navn</td>
+                </tr>
+                <tr>
+                  <td colspan="5">description</td>
+                  <td>string</td>
+                  <td>Hobbyens beskrivelse</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js" charset="utf-8"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="/main.js" charset="utf-8"></script>
+</body>
+
+</html>

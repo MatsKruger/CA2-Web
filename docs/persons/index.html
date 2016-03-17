@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>CA2 - Dokumentation</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="import" id="header-template" href="/partial/header.html">
+  <link rel="import" id="footer-template" href="/partial/footer.html">
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <h1>Persons</h1>
+      <div class="page-header">
+        <p class="lead">Persons web API'et udstiller Personer.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-12">
+          <ul id="indhold" class="nav nav-list affix">
+            <li data-toggle="collapse" data-target="#personer" class="nav-header">Personer API</li>
+            <ul id="personer" class="nav nav-list collapse in">
+              <li><a href="#personsoegning">Personsøgning</a></li>
+              <li><a href="#personopslag">Personopslag</a></li>
+              <li><a href="#persondata">Persondata</a></li>
+            </ul>
+          </ul>
+        </div>
+        <div class="col-md-9 col-sm-12">
+          <section>
+            <h3 id="personsoegning" class="anchor-header">Personsøgning</h3>
+            <p>Søg efter personer. Returnerer de personer som opfylder kriteriet.</p><pre>GET http://dawa.aws.dk/persons</pre>
+            <h4>Parametre</h4>
+            <p></p>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Navn</th>
+                  <th>Beskrivelse</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>Personens unikke id, f.eks. 1.</td>
+                </tr>
+                <tr>
+                  <td>hobby</td>
+                  <td>Id på den hobby som du vil have personer fra</td>
+                </tr>
+              </tbody>
+            </table>
+            <p></p>
+            <h4>Eksempler</h4>
+            <p>Find person med id 1</p><pre><a href="http://localhost:8080/CA2/api/persons?id=1">http://localhost:8080/CA2/api/persons?id=1</a></pre>
+            <p>Find alle personer med hobby id 1</p><pre><a href="http://localhost:8080/CA2/api/persons?hobby=1">http://localhost:8080/CA2/api/persons?hobby=1</a></pre>
+            <div class="page-header"></div>
+            <h3 id="personopslag" class="anchor-header">Personopslag</h3>
+            <p>Modtag person med id.</p><pre>GET http://dawa.aws.dk/persons/{id}</pre>
+            <h4>Parametre</h4>
+            <p></p>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Navn</th>
+                  <th>Beskrivelse</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>Personens unikke id, f.eks. 1.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p></p>
+            <h4>Eksempler</h4>
+            <p>Returner person med id 1</p><pre><a href="http://localhost:8080/CA2/api/persons/1">http://localhost:8080/CA2/api/persons/1</a></pre>
+            <div class="page-header">
+              <h3 id="persondata" class="anchor-header">Beskrivelse af persondata</h3></div>
+            <p>Web API'et udstiller for hver person følgende informationer:</p>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th colspan="5">Navn</th>
+                  <th>Type</th>
+                  <th>Beskrivelse</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="5">href</td>
+                  <td>string</td>
+                  <td>Personens unikke URL.</td>
+                </tr>
+                <tr>
+                  <td colspan="5">id</td>
+                  <td>int</td>
+                  <td>Personens id</td>
+                </tr>
+                <tr>
+                  <td colspan="5">firstName</td>
+                  <td>string</td>
+                  <td>Personens fornavn</td>
+                </tr>
+                <tr>
+                  <td colspan="5">firstName</td>
+                  <td>string</td>
+                  <td>Personens efternavn</td>
+                </tr>
+                <tr>
+                  <td colspan="5">email</td>
+                  <td>string</td>
+                  <td>Personens email</td>
+                </tr>
+                <tr>
+                  <td colspan="5">phones</td>
+                  <td>array</td>
+                  <td>Personens telefoner</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">id</td>
+                  <td>integer</td>
+                  <td>Telefonens id</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">number</td>
+                  <td>string</td>
+                  <td>Telefonens nummer</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">description</td>
+                  <td>string</td>
+                  <td>Telefonens beskrivelse</td>
+                </tr>
+                <tr>
+                  <td colspan="5">hobbies</td>
+                  <td>array</td>
+                  <td>Hobbier som array [{id, name, description}...]</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">id</td>
+                  <td>integer</td>
+                  <td>Hobbiens id</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">name</td>
+                  <td>string</td>
+                  <td>Hobbiens navn</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">description</td>
+                  <td>string</td>
+                  <td>Hobbiens beskrivelse</td>
+                </tr>
+                <tr>
+                  <td colspan="5">address</td>
+                  <td>object</td>
+                  <td>Personens adresse</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">id</td>
+                  <td>integer</td>
+                  <td>Adressens id</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">street</td>
+                  <td>string</td>
+                  <td>Adressens vejnavn</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">additionalInfo</td>
+                  <td>string</td>
+                  <td>Adressens husnr, etage og side/dør</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td colspan="4">cityInfo</td>
+                  <td>object</td>
+                  <td>Adressens tilhørende by</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td colspan="3">id</td>
+                  <td>integer</td>
+                  <td>Byens id</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td colspan="3">zipCode</td>
+                  <td>string</td>
+                  <td>Byens postnummer</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td colspan="3">city</td>
+                  <td>string</td>
+                  <td>Byens navn</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js" charset="utf-8"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="/main.js" charset="utf-8"></script>
+</body>
+
+</html>
